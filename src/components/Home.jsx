@@ -19,9 +19,17 @@ const Home = () => {
             spacing={['16','56']}
             >
 
-        <VStack width={"full"} alignItems={["center","flex-end"]}>
+        <VStack width={"full"} 
+        alignItems={["center","flex-end"]}
+        spacing='8'
+        >
             <Heading children="LEARN FROM THE EXPERTS" size={'2xl'} />
-            <Text children = "Find Valuable Content At Reasonablel Price" />
+            <Text 
+            fontSize={'2xl'}
+            size={'2xl'}
+            fontFamily="cursive"
+            textAlign={['center','left']}
+             children = "Find Valuable Content At Reasonablel Price" />
             <Link to="/courses">
                 <Button size={"lg"} colorScheme='yellow'>
                     Explore Now

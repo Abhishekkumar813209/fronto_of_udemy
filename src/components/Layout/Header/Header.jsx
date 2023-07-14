@@ -1,15 +1,25 @@
 import React from 'react'
 import { ColorModeSwitcher } from "../../../ColorModeSwitcher"
 import { Button,Drawer, DrawerOverlay,DrawerContent,DrawerHeader, DrawerBody, useDisclosure,VStack,HStack} from '@chakra-ui/react'
-import {RiMenu5Fill} from "react-icons/ri";
+import {RiDashboardFill, RiLogoutBoxLine, RiMenu5Fill} from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import { isAuthenticated } from '../../../../../backend/middlewares/auth';
+// import { CgLaptop } from 'react-icons/cg';
 
 const LinkButton = ({url="/",title="Home"}) =>(
     <Link to={url}>
         <Button variant={'ghost'}> {title} </Button>
     </Link>
 )
+
+
+const isAuthenticated = false;
+const user = {
+    role:1
+}
+const logoutHandler = () =>{
+    console.log("logout")
+}
+
 
 
 
@@ -47,12 +57,41 @@ const Header = () => {
 
                 <HStack justifyContent={"space-evenly"} position="absolute" bottom={"2 rem"} width="80%">
                     {
-                        isAuthenticated?(<></>):(
-                            <>
-                                <Link to="/login">
-                                    <Button>Login</Button>
+                        isAuthenticated?(<>
+                                <VStack>
+                                    <HStack>
+                                        <Link to="/profile">
+                                            <Button variant={"ghost"} colorScheme={'yellow'}> 
+                                                Profile
+                                            </Button>
+                                        </Link>
+
+                                        <Button variant={'ghost'}
+                                        onClick={logoutHandler} >
+                                          <RiLogoutBoxLine />
+                                            Logout
+                                        </Button>
+                                    </HStack>
+                            { 
+                            user && user.role===1 && 
+                            (<Link to = "/admin/dashboard">
+                             <Button colorScheme={"purple"} variant="ghost">
+                                <RiDashboardFill style={{margin:'4px'}}/>
+                                  Dashboard
+                             </Button>
+                            </Link>
+                            )}
+                                </VStack>
+                        </>):(
+                           <>
+                              <Link to="/login">
+                                <Button colorScheme={'yellow'}>Login</Button>
+                              </Link>
+                                <p> OR </p>
+                                <Link to="/register">
+                                    <Button colorScheme={'yellow'}>Sign Up</Button>
                                 </Link>
-                            </>
+                           </> 
                         )
                     }
                 </HStack>
