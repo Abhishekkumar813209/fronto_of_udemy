@@ -1,13 +1,16 @@
 import React from 'react'
 import { ColorModeSwitcher } from "../../../ColorModeSwitcher"
-import { Button,Drawer} from '@chakra-ui/react'
+import { Button,Drawer, DrawerOverlay,DrawerContent,DrawerHeader, DrawerBody, useDisclosure} from '@chakra-ui/react'
 import {RiMenu5Fill} from "react-icons/ri";
 
 const Header = () => {
+
+    const {isOpen,onOpen,onClose} = useDisclosure()
   return (
         <>
             <ColorModeSwitcher />
             <Button 
+            onClick={onOpen}
             colorSchema={"yellow"} 
             width="12" 
             height={'12'} 
@@ -19,8 +22,12 @@ const Header = () => {
                 <RiMenu5Fill />
             </Button>
 
-            <Drawer>
-
+            <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+                <DrawerOverlay />
+                    <DrawerContent>
+                        <DrawerHeader borderBottomWidth={'1px'}> Course Bundler </DrawerHeader>
+                        <DrawerBody> </DrawerBody>
+                    </DrawerContent>
             </Drawer>
 
         </>
