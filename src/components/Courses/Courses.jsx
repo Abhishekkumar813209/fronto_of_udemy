@@ -62,6 +62,10 @@ const Courses = () => {
     const [keyword , setKeyword] = useState("")
     const [category,setCategory] = useState("")
 
+    const addToPlaylistHandler = () =>{
+      console.log("Added to playlist")
+    }
+
     const categories = [
       'Web development',
       'Artificial Intelligence',
@@ -108,10 +112,13 @@ const Courses = () => {
       title = {"Sample"}
       description={"description"}
       views = {23}
-      imageSrc={"Sample"}
+      imageSrc={
+        'https://cdn.pixabay.com/photo/2023/06/13/15/05/astronaut-8061095_1280.png'
+      }
       id={""}
       creator={"Sample boy"}
       lectureCount = {2}
+      addToPlaylistHandler={addToPlaylistHandler}
        />
 
             </Stack>
