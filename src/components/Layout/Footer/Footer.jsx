@@ -15,7 +15,11 @@ const Footer = () => {
                 color={'yellow.400'}
                 />
 
-                <HStack spacing={["2","10"]} justifyContent="center">
+                <HStack spacing={["2","10"]} 
+                justifyContent="center"
+                color={"white"}
+                fontSize="50"
+                >
 
                     <a href="https://youtube.com/6packprogrammer" rel="noreferrer" target={'_blank'}>
                         <TiSocialYoutubeCircular /> 
