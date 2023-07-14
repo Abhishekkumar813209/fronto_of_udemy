@@ -1,8 +1,11 @@
 import React from 'react'
-import {Heading, Stack,VStack,Text,Button,Image} from "@chakra-ui/react";
+import {Heading, Stack,VStack,Text,Button,Image,Box, HStack} from "@chakra-ui/react";
 import "./home.css"
 import { Link } from 'react-router-dom';
-import vg from "../assets/"
+import {CgGoogle,CgYoutube} from "react-icons/cg"
+import {SiCoursera,SiUdemy} from "react-icons/si";
+import {DiAws} from "react-icons/di"
+
 
 const Home = () => {
   return (
@@ -27,10 +30,33 @@ const Home = () => {
         </VStack>
 
 
-    <Image boxSize={"md"} src={vg}  objectFit="contain" />
+    <Image 
+    className='vector-graphics' 
+    boxSize={"md"}   
+    objectFit="contain" 
+    />
+                </Stack>
+        </div>
 
+        <Box padding={"8"} bg="blackAlpha.800">
+            <Heading 
+                textAlign={'center'}
+                fontFamily="body"
+                color={'yellow.400'}
+                children="OUR BRANDS"
+            />
+            <HStack className="brandsBanner" justifyContent={'space-evenly'} marginTop="4">
+                <CgGoogle />
+                <CgYoutube />
+                <SiCoursera />
+                <SiUdemy />
+                <DiAws />
+            </HStack>
+        </Box> 
 
-            </Stack>
+        <div className="container2">
+            <video autoPlay 
+            controls src={introVideo}></video>
         </div>
     </section>
   )
