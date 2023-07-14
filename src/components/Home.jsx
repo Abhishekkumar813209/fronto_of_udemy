@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import {CgGoogle,CgYoutube} from "react-icons/cg"
 import {SiCoursera,SiUdemy} from "react-icons/si";
 import {DiAws} from "react-icons/di"
-
+import introVideo from "./../assets/videos/lake_aerial_view_drone_flight_view_943.mp4"
 
 const Home = () => {
   return (
@@ -55,8 +55,13 @@ const Home = () => {
         </Box> 
 
         <div className="container2">
-            <video autoPlay 
-            controls src={introVideo}></video>
+            <video 
+            autoPlay 
+            controls 
+            controlsList="nodownload nofullscreen noremoteplayback" 
+            disablePictureInPicture
+            disableRemotePlayback
+            src={introVideo}>  </video>
         </div>
     </section>
   )
