@@ -25,7 +25,7 @@ const Home = () => {
         >
             <Heading children="LEARN FROM THE EXPERTS" size={'2xl'} />
             <Text 
-            fontSize={'2xl'}
+            fontSize={"3"}
             size={'2xl'}
             fontFamily="cursive"
             textAlign={['center','left']}
