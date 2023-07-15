@@ -8,8 +8,9 @@ export const fileUploadCss = {
     width:'110%',
     border:'none',
     height:'100%',
-    color:'#ECC948',
-    backgroundColor:'white'
+    color:'black',
+    backgroundColor:'white',
+    fontWeight:"600"
 }
 
 
@@ -28,14 +29,14 @@ const Register = () => {
 
     const changeImageHandler = (e) =>{
         const file = e.target.files[0];
-        const reader = new FileReader();
-
-        reader.readAsDataURL(file);
-        
-        reader.onloaded = () =>{
-            setimagePrev(reader.result);
-            setImage(file);
-        }
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+              setimagePrev(reader.result);
+              setImage(file);
+            };
+          }
     }
 
   return (
@@ -52,9 +53,9 @@ const Register = () => {
                 <FormLabel htmlFor="name" children="Name" />
                 <Input 
                 required 
-                id="email" 
-                value={email}
-                onChange={e=>setEmail(e.target.value)}
+                id="name" 
+                value={name}
+                onChange={e=>setName(e.target.value)}
                 placeholder="abc"
                 type={"text"}
                 focusBorderColor="yellow.500"

@@ -21,15 +21,15 @@ const Footer = () => {
                 fontSize="50"
                 >
 
-                    <a href="https://youtube.com/6packprogrammer" rel="noreferrer" target={'_blank'}>
+                    <a href="https://youtube.com/6packprogrammer" rel="noreferrer" target={'blank'}>
                         <TiSocialYoutubeCircular /> 
                     </a>
 
-                    <a href="https://instagram.com/meabhisingh" rel="noreferrer" target={'_blank'}>
+                    <a href="https://instagram.com/meabhisingh" rel="noreferrer" target={'blank'}>
                         <TiSocialInstagramCircular /> 
                     </a>
 
-                    <a href="https://github.com/meabhisingh" rel="noreferrer" target={'_blank'}>
+                    <a href="https://github.com/meabhisingh" rel="noreferrer" target={'blank'}>
                         <DiGithub /> 
                     </a>
 
