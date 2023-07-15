@@ -2,15 +2,15 @@ import { Container, VStack , Heading,Button,Box,FormLabel,Input, Textarea } from
 import React,{useState} from 'react'
 import {Link} from "react-router-dom";
 
-const Contact = () => {
+const Request = () => {
     const [email,setEmail] = useState('');
     const [name,setName] = useState('');
-    const [message,setMessage] = useState('');
+    const [course,setCourse] = useState('');
 
   return (
     <Container h="92vh">
         <VStack h="full" justifyContent={'center'} spacing="16">
-            <Heading children="Contact Us" />
+            <Heading children="Request New Course" />
             <form style={{width:'100%'}}>
                 <Box my={'4'}>
                 <FormLabel htmlFor="name" children="Name" />
@@ -39,12 +39,12 @@ const Contact = () => {
                 </Box>
 
                 <Box my={'4'}>
-                <FormLabel htmlFor="message" children="Message" />
+                <FormLabel htmlFor="course" children="Course" />
                 <Textarea
                 required 
-                id="message" 
-                value={message}
-                onChange={e=>setMessage(e.target.value)}
+                id="course" 
+                value={course}
+                onChange={e=>setCourse(e.target.value)}
                 placeholder="Your Message..."
                 focusBorderColor="yellow.500"
                 />
@@ -58,8 +58,8 @@ const Contact = () => {
                 
                 
                 <Box my="4">
-                    Request for a Course?{' '}
-                    <Link to="/request">
+                    See available Courses!{' '}
+                    <Link to="/courses">
                         <Button colorScheme={'yellow'} variant="link">
                             Click Here
                         </Button> {' '}
@@ -72,4 +72,5 @@ const Contact = () => {
     </Container>
   )
 }
-export default Contact
+
+export default Request

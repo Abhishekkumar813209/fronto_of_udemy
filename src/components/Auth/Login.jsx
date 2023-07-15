@@ -1,4 +1,4 @@
-import {Container,VStack,FormLabel,Input,Heading,email, Box,Button} from "@chakra-ui/react"
+import {Container,VStack,FormLabel,Input,Heading, Box,Button} from "@chakra-ui/react"
 import React,{useState} from 'react'
 import { Link } from "react-router-dom"
 

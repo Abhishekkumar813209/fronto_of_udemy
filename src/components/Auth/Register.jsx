@@ -1,4 +1,4 @@
-import {Container,VStack,FormLabel,Input,Heading,email, Box,Button,Avatar} from "@chakra-ui/react"
+import {Container,VStack,FormLabel,Input,Heading, Box,Button,Avatar} from "@chakra-ui/react"
 import React,{useState} from 'react'
 import { Link } from "react-router-dom"
 
@@ -40,7 +40,7 @@ const Register = () => {
     }
 
   return (
-   <Container h={'95vh'}>
+   <Container h={'105vh'} mt={"100px"}>
         <VStack h={'full'} justifyContent="center" spacing={'16'}>
             <Heading textTransform = {"uppercase"} children ={'Registration '} />
            
