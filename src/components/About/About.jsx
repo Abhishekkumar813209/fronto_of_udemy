@@ -1,26 +1,71 @@
-import { Avatar, Container, Heading, Stack, VStack,Text,Button } from '@chakra-ui/react'
+import { Avatar, Container, Heading,Box, Stack, VStack,Text,Button, HStack } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import introVideo from "../../assets/videos/lake_aerial_view_drone_flight_view_943.mp4"
+import { RiSecurePaymentFill } from 'react-icons/ri'
+import TermsAndCondition from '../../assets/docs/termsAndCondition'
 
-const Founder = () =>(
-    <Stack
-    direction={['column','row']}
-    spacing={['4','16']}
-    padding={'8'} >
-        <VStack>
-            <Avatar boxSize={['40','48']} />
-            <Text children="Co-Founder" opacity={0.7} />
-        </VStack>
-        <VStack justifyContent={'center'} alignItems={['center','flex-start']}>
-            <Heading children="Abhishek Singh" size={['md','xl']} />
-            <Text
-            textAlign={['center','left']}
-            children={`Hi , I am a full-stack developer and a teacher. 
-            Our mission is to provide quality content at reasonable price.`}
-            />
-        </VStack>
-    </Stack>
-)
+        const Founder = () =>(
+            <Stack
+            direction={['column','row']}
+            spacing={['4','16']}
+            padding={'8'} >
+                <VStack>
+                    <Avatar boxSize={['40','48']} />
+                    <Text children="Co-Founder" opacity={0.7} />
+                </VStack>
+                <VStack justifyContent={'center'} alignItems={['center','flex-start']}>
+                    <Heading children="Abhishek Singh" size={['md','xl']} />
+                    <Text
+                    textAlign={['center','left']}
+                    children={`Hi , I am a full-stack developer and a teacher. 
+                    Our mission is to provide quality content at reasonable price.`}
+                    />
+                </VStack>
+            </Stack>
+        )
+
+        const VideoPlayer = () =>(
+            <Box>
+            <video 
+                    autoPlay 
+                    muted
+                    loop
+                    controls 
+                    controlsList="nodownload nofullscreen noremoteplayback" 
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    src={introVideo}>  
+            </video>
+            </Box>
+        )
+
+            const TandC = ({termsAndCondition}) =>(
+                <Box>
+                    <Heading
+                    size={'md'}
+                    children="Terms & Conditions"
+                    textAlign={['center','left']}
+                    my='4'
+                    />
+
+                    <Box h="sm" p="4" overflowY={'scroll'}>
+                        <Text
+                        fontFamily={"heading"}
+                         letterSpacing={'widest'} 
+                         textAlign={['center','left']}
+                         >
+
+                          {termsAndCondition} 
+                          </Text>
+                          <Heading my="4" 
+                            size={"xs"}
+                            children="Refund only applicable for cancellation within 7 days"
+                          />
+                    </Box>
+                </Box>
+            )
+
 
 const About = () => {
   return (
@@ -40,6 +85,21 @@ const About = () => {
                 </Button>
             </Link>
         </Stack>
+        <VideoPlayer />
+
+
+        <TandC termsAndCondition= {TermsAndCondition} />
+
+
+        <HStack my='4' p={'4'}>
+            <RiSecurePaymentFill />
+            <Heading
+            size={'xs'}
+            fontFamily='sans-serif'
+            textTransform={'uppercase'}
+            children={'Payment is secured by Razorpay'}
+            />
+        </HStack>
    </Container>
   )
 }
