@@ -18,7 +18,7 @@ const LinkButton = ({url="/",title="Home",onClose}) =>(
 
 const Header = () => {
     const {isOpen,onOpen,onClose} = useDisclosure()
-    const isAuthenticated = false;
+    const isAuthenticated = true;
 const user = {
     role:1
 }
@@ -39,6 +39,7 @@ const logoutHandler = () =>{
             position={'fixed'}
             top="6"
             left="6"
+            zIndex={'overlay'}
             >
                 <RiMenu5Fill />
             </Button>
