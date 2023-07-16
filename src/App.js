@@ -20,6 +20,9 @@ import Profile from './components/Profile/Profile';
 import UpdateProfile from './components/Profile/UpdateProfile';
 import ChangePassword from './components/Profile/ChangePassword';
 import Dashboard from './components/Admin/Dashboard/Dashboard';
+import CreateCourse from './components/Admin/CreateCourse/CreateCourse';
+import Users from './components/Admin/Users/Users';
+import AdminCourses from './components/Admin/AdminCourses/AdminCourses';
 function App() {
 
   window.addEventListener("contextmenu",(e)=>{
@@ -52,9 +55,12 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/paymentsuccess" element={<PaymentSuccess />} />
           <Route path="/paymentfailure" element={<PaymentFailure/>} />
-
+              {/* Admin Routes */}
           <Route path="/admin/dashboard" element={<Dashboard />} />
-
+          <Route path="/admin/createcourse" element={<CreateCourse />} />
+          <Route path="/admin/courses" element={<AdminCourses />} />
+          <Route path="/admin/users" element={<Users />} />
+          
         </Routes>
       </div>
         <Footer />
