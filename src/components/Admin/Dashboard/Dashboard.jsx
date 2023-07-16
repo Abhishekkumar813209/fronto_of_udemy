@@ -2,6 +2,7 @@ import { Box, Grid ,Heading,Stack,Text, HStack,Progress} from '@chakra-ui/react'
 import React from 'react'
 import Sidebar from '../Sidebar'
 import { RiArrowDownLine, RiArrowUpLine } from 'react-icons/ri'
+import { LineChart } from './Chart'
 
 const Databox = ({ title, qty, qtyPercentage, profit }) => {
     return (
@@ -73,24 +74,23 @@ const Dashboard = () => {
         />
 
         </Stack>
-    </Box>
-
-    <Box
+        <Box
     m={['0','16']}
     borderRadius="lg"
     p={['0','16']}
     mt={['4','16']}
     boxShadow={'-2px 0 10px rgba(107,70,193,0.5)'}
+    // border="5px solid green"
     >
 
     <Heading textAlign={['center','left']} size='md' children="Views Graph" pt={['8','0']} 
         ml={['0','16']}
     />
 
-
+      {/* Line Graph here */}
+      <LineChart />
     </Box>
 
-    {/* Line Graph Here */}
     <Grid templateColumns={['1fr','2fr 1fr']}>
         <Box p='4'>
             <Heading
@@ -114,6 +114,11 @@ const Dashboard = () => {
         </Box>
 
         </Grid>
+    </Box>
+
+
+  
+    
     <Sidebar />
    </Grid>
   )
