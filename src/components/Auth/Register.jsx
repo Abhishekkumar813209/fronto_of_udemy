@@ -46,7 +46,7 @@ const Register = () => {
            
             <form style={{width:'100%'}}>
             <Box my="4" display={'flex'} justifyContent="center">
-                <Avatar size={'2xl'} />
+                {imagePrev && <Avatar size={'2xl'} src={imagePrev} />}
             </Box>
 
             <Box my={'4'}>

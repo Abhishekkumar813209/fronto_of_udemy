@@ -1,10 +1,11 @@
-import { Container,Heading,Stack,VStack,Avatar,Button, HStack,Image ,Text} from '@chakra-ui/react'
-import React from 'react'
+import { Container,Heading,Stack,VStack,Avatar,Button, HStack,Image ,Text,Modal,ModalContent,ModalOverlay,ModalCloseButton,ModalHeader,Input,ModalBody, ModalFooter, useDisclosure} from '@chakra-ui/react'
+import React,{useState} from 'react'
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
-
+import { fileUploadCss } from '../Auth/Register'
 const Profile = () => {
-
+    const [imagePrev,setImagePrev] = useState("")
+    const [image,setImage] = useState("");
     const user = {
         name:'Abhishek',
         email:'abhi@gmail.com',  
@@ -26,6 +27,14 @@ const Profile = () => {
         console.log(id)
     }
 
+    const changeImageSubmitHandler = (e,image) =>{
+            e.preventDefault();
+            console.log(image)
+    }
+
+
+    const {isOpen,onClose,onOpen} = useDisclosure() 
+
   return (
     <Container minH={'95vh'} maxW="container.lg" py="8">
 
@@ -41,7 +50,7 @@ const Profile = () => {
         <VStack>
             <Avatar boxSize={'48'} />
 
-            <Button colorScheme={'yellow'} variant = "ghost">
+            <Button onClick={onOpen} colorScheme={'yellow'} variant = "ghost">
                 Change Photo
             </Button>
         </VStack>
@@ -95,7 +104,7 @@ const Profile = () => {
                 >
 
                 {
-                 user.playlist.map((element,index)=>(
+                 user.playlist.map((element)=>(
                     <VStack w="48" m="2" key={element.course}>
 
                         <Image
@@ -121,8 +130,77 @@ const Profile = () => {
             )
 
         }
+        <ChangePhotoBox 
+        changeImageSubmitHandler={changeImageSubmitHandler}
+        isOpen = {isOpen} 
+        onClose={onClose}
+        setImage={setImage}
+        setImagePrev={setImagePrev}    
+        />
+
     </Container>
   )
 }
 
 export default Profile 
+
+function ChangePhotoBox({isOpen,onClose,changeImageSubmitHandler}){
+    const [image,setImage] = useState("");
+    const [imagePrev,setImagePrev] = useState("")
+
+    const changeImage = (e) =>{
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+              setImagePrev(reader.result);
+              setImage(file);
+            };
+          }
+    }
+
+    const closeHandler = () =>{
+        onClose();
+        setImagePrev("");
+        setImage("")
+    }
+
+    return (
+        <Modal isOpen={isOpen} onClose={closeHandler}>
+          <ModalOverlay backdropFilter = {'blur(10px'} />
+          <ModalContent>
+           <ModalHeader>
+                Change Photo
+           </ModalHeader>
+            <ModalCloseButton />
+             <ModalBody>
+                <Container>
+                    <form onSubmit={(e)=> changeImageSubmitHandler(e,image)}>
+                        <VStack spacing={'8'}>
+                            {imagePrev && <Avatar src={imagePrev} boxSize={'48px'} />}
+
+                            <Input 
+                            type={'file'}
+                            css={{'&::file-selector-button':fileUploadCss }}
+                            onChange={changeImage}
+                            />
+
+                            <Button w='full' colorScheme={'yellow'} type="submit">
+                                Change 
+                            </Button>
+                        </VStack>
+                    </form>
+                </Container>
+             </ModalBody>
+
+            <ModalFooter>
+                <Button mr="3" onClick={closeHandler}>
+                    Cancel
+                </Button>
+            </ModalFooter>
+
+          </ModalContent> 
+        </Modal>
+    )
+}
