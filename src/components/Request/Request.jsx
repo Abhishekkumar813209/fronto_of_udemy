@@ -9,7 +9,7 @@ const Request = () => {
 
   return (
     <Container h="92vh">
-        <VStack h="full" justifyContent={'center'} spacing="16">
+        <VStack h="full" justifyContent={'center'} spacing="16" py="16">
             <Heading children="Request New Course" />
             <form style={{width:'100%'}}>
                 <Box my={'4'}>

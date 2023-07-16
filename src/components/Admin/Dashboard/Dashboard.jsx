@@ -2,7 +2,7 @@ import { Box, Grid ,Heading,Stack,Text, HStack,Progress} from '@chakra-ui/react'
 import React from 'react'
 import Sidebar from '../Sidebar'
 import { RiArrowDownLine, RiArrowUpLine } from 'react-icons/ri'
-import { LineChart } from './Chart'
+import { DoughnutChart, LineChart } from './Chart'
 
 const Databox = ({ title, qty, qtyPercentage, profit }) => {
     return (
@@ -111,14 +111,11 @@ const Dashboard = () => {
             <Heading textAlign={'center'} size="md" mb="4" children="Users" />
 
             {/* Donut graph */}
+            <DoughnutChart />
         </Box>
 
         </Grid>
     </Box>
-
-
-  
-    
     <Sidebar />
    </Grid>
   )
