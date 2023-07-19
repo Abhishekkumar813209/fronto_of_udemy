@@ -23,15 +23,18 @@ import Dashboard from './components/Admin/Dashboard/Dashboard';
 import CreateCourse from './components/Admin/CreateCourse/CreateCourse';
 import Users from './components/Admin/Users/Users';
 import AdminCourses from './components/Admin/AdminCourses/AdminCourses';
+import { useSelector } from 'react-redux';
 function App() {
 
   window.addEventListener("contextmenu",(e)=>{
     e.preventDefault()
   })
 
+  const {isAuthenticated,user} = useSelector(state=>state.user)
+
   return (
      <Router>    
-       <Header />
+       <Header isAuthenticated={isAuthenticated} user={user}/>
        <div style={{ marginBottom: '60px' }}>
         <Routes>
           <Route path="/" element={<Home />} />

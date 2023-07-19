@@ -1,18 +1,27 @@
 import {Container,VStack,FormLabel,Input,Heading, Box,Button} from "@chakra-ui/react"
 import React,{useState} from 'react'
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
+import { login } from "../../redux/actions/user"
 
 const Login = () => {
 
     const [email , setEmail] = useState("")
     const [password,setPassword]=useState("")
 
+    const dispatch = useDispatch()
+
+    const sumbitHandler = (e) =>{
+        e.preventDefault();
+        dispatch(login(email,password  ))
+    }
+
   return (
    <Container h={'95vh'}>
         <VStack h={'full'} justifyContent="center" spacing={'16'}>
             <Heading children ={'Welcome to CourseBundler'} />
            
-            <form style={{width:'100%'}}>
+            <form onSubmit={sumbitHandler} style={{width:'100%'}}>
                 <Box>
                 <FormLabel htmlFor="email" children="Email Address" />
                 <Input 

@@ -27,7 +27,14 @@ const AdminCourses = () => {
   const deleteButtonHandler = userId=>{
     console.log(userId);
   }
+  const deleteLectureButtonHandler=(courseId,lectureId) =>{
+    console.log(courseId);
+    console.log(lectureId);
+  }
 
+  const addLectureHandler = (e,courseId,title,description,video) =>{
+    e.preventDefault()
+  }
 
   return (
     <Grid
@@ -72,7 +79,14 @@ const AdminCourses = () => {
         </Table>
       </TableContainer>
 
-    <CourseModal isOpen={isOpen} onClose = {onClose} />
+    <CourseModal
+     isOpen={isOpen} 
+     onClose = {onClose} 
+     id={"afasdfsdf"}
+     deleteButtonHandler={deleteLectureButtonHandler}
+     addLectureHandler={addLectureHandler}
+     courseTitle="React Course"
+    />
 
      </Box>  
      <Sidebar />   
