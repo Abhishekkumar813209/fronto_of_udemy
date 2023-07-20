@@ -3,6 +3,8 @@ import { ColorModeSwitcher } from "../../../ColorModeSwitcher"
 import { Button,Drawer, DrawerOverlay,DrawerContent,DrawerHeader, DrawerBody, useDisclosure,VStack,HStack} from '@chakra-ui/react'
 import {RiDashboardFill, RiLogoutBoxLine, RiMenu5Fill} from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../redux/actions/user';
 // import { CgLaptop } from 'react-icons/cg';
 
 const LinkButton = ({url="/",title="Home",onClose}) =>(
@@ -19,9 +21,10 @@ const LinkButton = ({url="/",title="Home",onClose}) =>(
 const Header = ({isAuthenticated=false,user}) => {
     const {isOpen,onOpen,onClose} = useDisclosure()
     
+const dispatch = useDispatch()
 const logoutHandler = () =>{
-    console.log("logout")
     onClose();
+    dispatch(logout())
 }
 
   return (
