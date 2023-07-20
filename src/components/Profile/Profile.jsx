@@ -52,10 +52,10 @@ const Profile = ({user}) => {
                 <Text children={user.createdAt.split('T')[0]} />
             </HStack>
             {
-                user.role!==1 && user.subscription &&  (
+                user.role!==1 &&  (
                     <HStack>
                         <Text children="Subscription" fontWeight={'bold'} />
-                        {user.subscription.status==="active" ? (
+                        {user.subscription && user.subscription.status==="active" ? (
                             <Button color={'yellow.500'} variant="unstyled" > Cancel Subscription </Button>
                         ):(
                             <Link to = "/subscribe">
