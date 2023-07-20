@@ -79,7 +79,13 @@ function App() {
            <Profile/>
             </ProtectedRoute>} />
           <Route path="/changepassword" element={<ChangePassword />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={
+          <ProtectedRoute 
+            isAuthenticated={!isAuthenticated}
+            redirect='/profile'
+          >
+              <Register />
+          </ProtectedRoute>} />
           <Route path="/updateprofile" element={<UpdateProfile />} />
 
 
