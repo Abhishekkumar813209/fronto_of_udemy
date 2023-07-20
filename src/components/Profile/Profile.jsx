@@ -3,28 +3,11 @@ import React,{useState} from 'react'
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { fileUploadCss } from '../Auth/Register'
-const Profile = () => {
-    const [imagePrev,setImagePrev] = useState("")
-    const [image,setImage] = useState("");
-    const user = {
-        name:'Abhishek',
-        email:'abhi@gmail.com',  
-        createdAt:String(new Date().toISOString()),
-        role:0,
-        subscription:{
-            status:"active"
-        },
-        playlist:[
-            {
-            course:'sadsad',
-            poster:
-            'https://cdn.pixabay.com/photo/2023/06/13/15/05/astronaut-8061095_1280.png'
-        }
-    ]
-    }
-
+const Profile = ({user}) => {
     const removeFromPlaylistHandler = id =>{
-        console.log(id)
+        console.log(id);
+    
+        
     }
 
     const changeImageSubmitHandler = (e,image) =>{
@@ -33,7 +16,7 @@ const Profile = () => {
     }
 
 
-    const {isOpen,onClose,onOpen} = useDisclosure() 
+    const {isOpen,onClose,onOpen,setImage,setImagePrev} = useDisclosure() 
 
   return (
     <Container minH={'95vh'} maxW="container.lg" py="8">
@@ -48,7 +31,7 @@ const Profile = () => {
         >
         
         <VStack>
-            <Avatar boxSize={'48'} />
+            <Avatar boxSize={'48'} src={user.avatar.url}/>
 
             <Button onClick={onOpen} colorScheme={'yellow'} variant = "ghost">
                 Change Photo
@@ -69,7 +52,7 @@ const Profile = () => {
                 <Text children={user.createdAt.split('T')[0]} />
             </HStack>
             {
-                user.role!==1 && (
+                user.role!==1 && user.subscription &&  (
                     <HStack>
                         <Text children="Subscription" fontWeight={'bold'} />
                         {user.subscription.status==="active" ? (
