@@ -1,7 +1,23 @@
 import { Box, Container,Heading, VStack,Text, Button } from '@chakra-ui/react'
-import React from 'react'
+import React,{useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { server } from '../../redux/store'
+import axios from 'axios'
+import { buySubscription } from '../../redux/actions/user'
 
 const Subscribe = () => {
+
+  const dispatch = useDispatch();
+  const [key,setKey] = useState("");
+
+  const subscribeHandler = async() =>{
+    await axios.get(`${server}/api/v1/razorpaykey`)
+  }
+
+  setKey(key);
+  dispatch(buySubscription())
+
+
   return (
     <Container h="90vh" p="16">
         <Heading children="Welcome" my="8" textAlign={'center'} />
@@ -27,6 +43,7 @@ const Subscribe = () => {
         my="8" 
         w="full"
         colorScheme={'yellow'}
+        onClick={subscribeHandler}
         > 
         Buy Now 
         </Button>

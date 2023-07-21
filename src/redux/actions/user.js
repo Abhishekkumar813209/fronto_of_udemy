@@ -104,3 +104,19 @@ export const logout = () => async (dispatch) => {
   }
 };
 
+export const buySubscription  = () => async (dispatch) => {
+  try {
+    dispatch({ type: 'buySubscriptionRequest' });
+
+    const { data } = await axios.get(`${server}/api/v1/subscribe`, {
+      withCredentials: true,
+    });
+
+    dispatch({type:'loginSuccess',payload:data.subscriptionId});
+  }
+  catch(error){
+    dispatch({ type: 'loginFail', });
+  }
+};
+
+

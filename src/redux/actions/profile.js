@@ -194,27 +194,23 @@ export const changePasswordFail = (error) => ({
   export const removeFromPlaylist = (id) => async dispatch=>{
     try{
         dispatch({
-            type:'addToPlaylistRequest'
+            type:'removeFromPlaylistRequest'
         })
 
         const config = {
-            headers:{
-                'Content-type':'application/json',
-            },
-            withCredentials:true,
+           withCredentials:true,
         }
-       const {data} =  await axios.post(`${server}/api/v1/addtoplaylist`,{
-        id
-       },
+       const {data} =  await axios.delete(
+        `${server}/api/v1/removefromplaylist?id=${id}`,
         config
        );
       
         dispatch({
-            type:'addToPlaylistSuccess',payload:data.message})
+            type:'removeFromPlaylistSuccess',payload:data.message})
     }
     catch(error){
         dispatch({
-            type:'addToPlaylistFail',
+            type:'removeFromPlaylistFail',
             payload:error.response.data.message,
         })
     }

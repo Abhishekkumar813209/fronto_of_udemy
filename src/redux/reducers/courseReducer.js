@@ -24,6 +24,12 @@ export const courseReducer = createReducer(
         addToPlaylistFail:(state,action) =>{
             state.loading = false;
             state.error = action.payload;
+        },
+        clearError:state=>{
+            state.error = null;
+        },
+        clearMessage:state=>{
+            state.message=null;
         }
     }
 )
