@@ -1,6 +1,9 @@
 import { Button, Container , HStack, Heading , Input,Text,Stack,VStack,Image } from '@chakra-ui/react'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {Link} from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux"
+import { getAllCourses } from '../../redux/actions/course'
+import toast from 'react-hot-toast'
 
 const Course = ({views,title,imageSrc,id,addToPlaylistHandler,creator,description,lectureCount}) =>{
       return (
@@ -61,9 +64,10 @@ const Courses = () => {
 
     const [keyword , setKeyword] = useState("")
     const [category,setCategory] = useState("")
+    const dispatch = useDispatch()
 
-    const addToPlaylistHandler = () =>{
-      console.log("Added to playlist")
+    const addToPlaylistHandler = (courseId) =>{
+      console.log("Added to playlist",courseId)
     }
 
     const categories = [
@@ -74,6 +78,19 @@ const Courses = () => {
       'Data Science',
       'Game Development'
     ]
+
+    const {loading,courses,error} = useSelector(state=>state.course)
+
+    useEffect(()=>{
+      dispatch(getAllCourses(category,keyword));
+
+      if(error){
+        toast.error(error);
+        dispatch({type:'clearError'})
+      }
+
+    },[category,keyword,dispatch,error])
+
 
   return (
     <Container minH={'95vh'} maxW="container.lg" paddingY = {'8'}>
@@ -107,19 +124,23 @@ const Courses = () => {
       justifyContent={["flex-start","space-evenly"]}
       alignItems={['center','flex-start']}
       >
-
+       {
+        courses && courses.map((item)=>(
+          
       <Course 
-      title = {"Sample"}
-      description={"description"}
-      views = {23}
-      imageSrc={
-        'https://cdn.pixabay.com/photo/2023/06/13/15/05/astronaut-8061095_1280.png'
-      }
-      id={""}
-      creator={"Sample boy"}
-      lectureCount = {2}
+      key={item._id}
+      title = {item.title}
+      description={item.description}
+      views = {item.views}
+      imageSrc={item.poster.url}
+      id={item._id}
+      creator={item.createdBy}
+      lectureCount = {item.numOfVideos}
       addToPlaylistHandler={addToPlaylistHandler}
        />
+
+        ))
+       }
 
             </Stack>
 

@@ -6,7 +6,7 @@ export const getAllCourses = (category="",keyword="") => async dispatch=>{
         dispatch({
             type:'allCoursesRequest'
         })
-       const {data} =  await axios.get(`${server}/courses?keyword=${keyword}&category=${category}`
+       const {data} =  await axios.get(`${server}/api/v1/courses?keyword=${keyword}&category=${category}`
        );
       
         dispatch({
@@ -20,3 +20,4 @@ export const getAllCourses = (category="",keyword="") => async dispatch=>{
         })
     }
 }
+

@@ -156,3 +156,66 @@ export const changePasswordFail = (error) => ({
     type: 'changePasswordFail',
     payload: error, // Pass the error message received from the backend
   });
+
+
+
+  export const addToPlaylist = (id) => async dispatch=>{
+    try{
+        dispatch({
+            type:'addToPlaylistRequest'
+        })
+
+        const config = {
+            headers:{
+                'Content-type':'application/json',
+            },
+            withCredentials:true,
+        }
+       const {data} =  await axios.post(`${server}/api/v1/addtoplaylist`,{
+        id
+       },
+        config
+       );
+      
+        dispatch({
+            type:'addToPlaylistSuccess',payload:data.message})
+    }
+    catch(error){
+        dispatch({
+            type:'addToPlaylistFail',
+            payload:error.response.data.message,
+        })
+    }
+  } 
+
+
+  
+  
+  export const removeFromPlaylist = (id) => async dispatch=>{
+    try{
+        dispatch({
+            type:'addToPlaylistRequest'
+        })
+
+        const config = {
+            headers:{
+                'Content-type':'application/json',
+            },
+            withCredentials:true,
+        }
+       const {data} =  await axios.post(`${server}/api/v1/addtoplaylist`,{
+        id
+       },
+        config
+       );
+      
+        dispatch({
+            type:'addToPlaylistSuccess',payload:data.message})
+    }
+    catch(error){
+        dispatch({
+            type:'addToPlaylistFail',
+            payload:error.response.data.message,
+        })
+    }
+  } 
