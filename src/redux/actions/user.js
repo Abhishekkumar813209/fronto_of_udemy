@@ -1,6 +1,7 @@
 import { server } from "../store";
 import axios from "axios";
 import Cookies from 'js-cookie'
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: 'loginRequest' });
@@ -11,23 +12,26 @@ export const login = (email, password) => async (dispatch) => {
       },
       withCredentials: true,
     });
-
     console.log('Response data',data)
-
-
     const token = data.token || data.user?.token || data?.user?.token;
-    Cookies.set('token', token, { expires: 7 }); // Set expiration (optional), here it's set to 7 days
-    console.log('recieved token:',token)
-    console.log('Token saved in cookie:',Cookies.get('token'));
+
+    // Check if token exists before saving to cookie
+    if (token) {
+      Cookies.set('token', token, { expires: 7 }); // Set expiration (optional), here it's set to 7 days
+      console.log('Received token:', token);
+    } else {
+      console.log('Token not found in response data.');
+    }
+        console.log('Token saved in cookie:',Cookies.get('token'));
     dispatch({ type: 'loginSuccess', payload: data });
   } catch (error) {
     const errorMessage = error.response && error.response.data && error.response.data.message
       ? error.response.data.message
       : 'An unknown error occurred.';
-    
     dispatch({ type: 'loginFail', payload: errorMessage });
   }
 };
+
 export const register = (formdata) => async (dispatch) => {
   try {
     dispatch({ type: 'registerRequest' });
@@ -67,7 +71,7 @@ export const loadUser = () => async (dispatch) => {
       });
   
       console.log(data);
-      dispatch({ type: 'loadUserSuccess', payload: data.user});
+      dispatch({ type: 'loadUserSuccess', payload: data});
     } catch (error) {
       const errorMessage = error.response && error.response.data && error.response.data.message
         ? error.response.data.message
@@ -78,10 +82,7 @@ export const loadUser = () => async (dispatch) => {
   };
   
 
-  // Remove the duplicate logout action
-// export const logout = () => async (dispatch) => {
-//   ...
-// };
+ 
 
 export const logout = () => async (dispatch) => {
   try {

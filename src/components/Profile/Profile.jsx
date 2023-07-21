@@ -7,26 +7,27 @@ import { updateProfilePicture } from '../../redux/actions/profile'
 import { useDispatch } from 'react-redux'
 
 
+
 const Profile = ({user}) => {
+
+    const dispatch = useDispatch();
+
+    const {isOpen,onClose,onOpen,setImage,setImagePrev} = useDisclosure() 
+
     const removeFromPlaylistHandler = id =>{
         console.log(id);
     }
 
-    const dispatch = useDispatch();
-    
+        
     const changeImageSubmitHandler = (e,image) =>{
-            e.preventDefault();
-            const myForm = new FormData();
-            myForm.append('file',image);
-            dispatch(updateProfilePicture(myForm));
-    }
-
-
-    const {isOpen,onClose,onOpen,setImage,setImagePrev} = useDisclosure() 
+        e.preventDefault();
+        const myForm = new FormData();
+        myForm.append('file',image);
+        dispatch(updateProfilePicture(myForm));
+}
 
   return (
     <Container minH={'95vh'} maxW="container.lg" py="8">
-
     <Heading children="Profile" m="8" textTransform={'uppercase'}/>
         <Stack
         justifyContent={"flex-start"}
@@ -55,7 +56,7 @@ const Profile = ({user}) => {
             </HStack>
             <HStack>
                 <Text children="CreatedAt" fontWeight={'bold'} />
-                <Text children={user.createdAt.split('T')[0]} />
+                <Text children={user.createdAt.split('T')[0] } />
             </HStack>
             {
                 user.role!==1 &&  (
@@ -132,6 +133,8 @@ const Profile = ({user}) => {
 }
 
 export default Profile 
+
+
 
 function ChangePhotoBox({isOpen,onClose,changeImageSubmitHandler}){
     const [image,setImage] = useState("");

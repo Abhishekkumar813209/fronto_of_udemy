@@ -3,10 +3,10 @@ import { Container,Heading,VStack,Input,Button } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux';
 import { updateProfile } from '../../redux/actions/profile';
 
-const UpdateProfile = () => {
+const UpdateProfile = ({user}) => {
 
-    const[name,setName] = useState('')
-    const [email,setEmail] = useState('');
+    const[name,setName] = useState(user.name)
+    const [email,setEmail] = useState(user.email);
 
     const dispatch= useDispatch()
 
