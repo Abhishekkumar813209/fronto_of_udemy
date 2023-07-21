@@ -142,7 +142,8 @@ const Profile = ({user}) => {
         isOpen = {isOpen} 
         onClose={onClose}
         setImage={setImage}
-        setImagePrev={setImagePrev}    
+        setImagePrev={setImagePrev} 
+        loading={loading}   
         />
 
     </Container>
@@ -153,7 +154,7 @@ export default Profile
 
 
 
-function ChangePhotoBox({isOpen,onClose,changeImageSubmitHandler}){
+function ChangePhotoBox({isOpen,onClose,changeImageSubmitHandler,loading}){
     const [image,setImage] = useState("");
     const [imagePrev,setImagePrev] = useState("")
 
@@ -195,7 +196,7 @@ function ChangePhotoBox({isOpen,onClose,changeImageSubmitHandler}){
                             onChange={changeImage}
                             />
 
-                            <Button w='full' colorScheme={'yellow'} type="submit">
+                            <Button isLoading={loading} w='full' colorScheme={'yellow'} type="submit">
                                 Change 
                             </Button>
                         </VStack>
