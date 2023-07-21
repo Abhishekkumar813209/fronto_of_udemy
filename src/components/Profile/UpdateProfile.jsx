@@ -1,14 +1,24 @@
 import React,{useState} from 'react'
 import { Container,Heading,VStack,Input,Button } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux';
+import { updateProfile } from '../../redux/actions/profile';
 
 const UpdateProfile = () => {
 
     const[name,setName] = useState('')
     const [email,setEmail] = useState('');
 
+    const dispatch= useDispatch()
+
+    const submitHandler=(e)=>{
+      e.preventDefault();
+      dispatch(updateProfile(name,email));
+  }
+
+
   return (
     <Container py="16" minH={'90vh'}>
-          <form>
+          <form onSubmit={submitHandler}>
             <Heading 
             textTransform={'uppercase'}
             children="Update Profile"

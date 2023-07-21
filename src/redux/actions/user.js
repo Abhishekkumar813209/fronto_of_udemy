@@ -11,10 +11,14 @@ export const login = (email, password) => async (dispatch) => {
       },
       withCredentials: true,
     });
-    const token = data.token;
+
+    console.log('Response data',data)
+
+
+    const token = data.token || data.user?.token || data?.user?.token;
     Cookies.set('token', token, { expires: 7 }); // Set expiration (optional), here it's set to 7 days
     console.log('recieved token:',token)
-    console.log(data);
+    console.log('Token saved in cookie:',Cookies.get('token'));
     dispatch({ type: 'loginSuccess', payload: data });
   } catch (error) {
     const errorMessage = error.response && error.response.data && error.response.data.message

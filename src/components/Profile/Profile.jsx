@@ -3,16 +3,22 @@ import React,{useState} from 'react'
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { fileUploadCss } from '../Auth/Register'
+import { updateProfilePicture } from '../../redux/actions/profile'
+import { useDispatch } from 'react-redux'
+
+
 const Profile = ({user}) => {
     const removeFromPlaylistHandler = id =>{
         console.log(id);
-    
-        
     }
 
+    const dispatch = useDispatch();
+    
     const changeImageSubmitHandler = (e,image) =>{
             e.preventDefault();
-            console.log(image)
+            const myForm = new FormData();
+            myForm.append('file',image);
+            dispatch(updateProfilePicture(myForm));
     }
 
 
