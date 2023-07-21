@@ -1,12 +1,12 @@
 import { Container,Heading,Stack,VStack,Avatar,Button, HStack,Image ,Text,Modal,ModalContent,ModalOverlay,ModalCloseButton,ModalHeader,Input,ModalBody, ModalFooter, useDisclosure} from '@chakra-ui/react'
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { fileUploadCss } from '../Auth/Register'
 import { updateProfilePicture } from '../../redux/actions/profile'
-import { useDispatch } from 'react-redux'
-
-
+import { useDispatch, useSelector } from 'react-redux'
+import { loadUser } from '../../redux/actions/user'
+import toast from "react-hot-toast"
 
 const Profile = ({user}) => {
 
@@ -14,17 +14,32 @@ const Profile = ({user}) => {
 
     const {isOpen,onClose,onOpen,setImage,setImagePrev} = useDisclosure() 
 
+    const {loading,message,error} = useSelector(state => state.profile );
+    
+    useEffect(()=>{
+        if(error){
+            toast.error(error);
+            dispatch({type:'clearError'});
+        }
+        if(message){
+            toast.success(message);
+            dispatch({type:'clearMessage'});
+        }
+    },[dispatch,error,message])
+
     const removeFromPlaylistHandler = id =>{
         console.log(id);
     }
 
-        
-    const changeImageSubmitHandler = (e,image) =>{
+           
+    const changeImageSubmitHandler = async (e,image) =>{
         e.preventDefault();
         const myForm = new FormData();
         myForm.append('file',image);
-        dispatch(updateProfilePicture(myForm));
+       await dispatch(updateProfilePicture(myForm));
+       dispatch(loadUser());
 }
+
 
   return (
     <Container minH={'95vh'} maxW="container.lg" py="8">
@@ -40,7 +55,9 @@ const Profile = ({user}) => {
         <VStack>
             <Avatar boxSize={'48'} src={user.avatar.url}/>
 
-            <Button onClick={onOpen} colorScheme={'yellow'} variant = "ghost">
+            <Button 
+            isLoading={loading}
+             onClick={onOpen} colorScheme={'yellow'} variant = "ghost">
                 Change Photo
             </Button>
         </VStack>
