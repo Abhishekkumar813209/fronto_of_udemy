@@ -15,11 +15,17 @@ const Subscribe = ({user}) => {
   const {loading,error,subscriptionId} = useSelector(state=>state.subscription)
 
   const subscribeHandler = async() =>{
-    await axios.get(`${server}/api/v1/razorpaykey`)
+    try{
+      const response = await axios.get(`${server}/api/v1/razorpaykey`);
+      const key = response.data.key;
+      setKey(key);
+      dispatch(buySubscription());
+    }catch(error){
+      toast.error("Failed to get Razorpay key.")
+    }
   }
 
-  setKey(key);
-  dispatch(buySubscription())
+  
 
   useEffect(()=>{
     if(error){
@@ -82,6 +88,7 @@ const Subscribe = ({user}) => {
         w="full"
         colorScheme={'yellow'}
         onClick={subscribeHandler}
+        isLoading={loading}
         > 
         Buy Now 
         </Button>

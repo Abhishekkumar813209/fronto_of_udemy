@@ -112,10 +112,26 @@ export const buySubscription  = () => async (dispatch) => {
       withCredentials: true,
     });
 
-    dispatch({type:'loginSuccess',payload:data.subscriptionId});
+    dispatch({type:'buySubscriptionSuccess',payload:data.subscriptionId});
   }
   catch(error){
-    dispatch({ type: 'loginFail', });
+    dispatch({ type: 'buySubscriptionFail', });
+  }
+};
+
+
+export const cancelSubscription  = () => async (dispatch) => {
+  try {
+    dispatch({ type: 'cancelSubscriptionRequest' });
+
+    const { data } = await axios.delete(`${server}/api/v1/subscribe/cancel`, {
+      withCredentials: true,
+    });
+
+    dispatch({type:'cancelSubscriptionSuccess',payload:data.message});
+  }
+  catch(error){
+    dispatch({ type: 'cancelSubscriptionFail', });
   }
 };
 
