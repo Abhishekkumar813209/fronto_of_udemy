@@ -13,7 +13,9 @@ const Subscribe = ({user}) => {
   const [key,setKey] = useState("");
 
   const {loading,error,subscriptionId} = useSelector(state=>state.subscription)
-
+  const {error:courseError} = useSelector(
+    state=>state.course
+  )
   const subscribeHandler = async() =>{
     try{
       const response = await axios.get(`${server}/api/v1/razorpaykey`);
@@ -32,6 +34,10 @@ const Subscribe = ({user}) => {
       toast.error(error);
       dispatch({type:'clearError'});
     }
+    if(courseError){
+      toast.error(courseError);
+      dispatch({type:'clearError'});
+    }
     if(subscriptionId){
       const openPopUp = () =>{
         
@@ -41,7 +47,7 @@ const Subscribe = ({user}) => {
           description:'Get access to all premium content',
           image:detective,
           subscription_id:subscriptionId,
-          callback_url:`${server}/paymentverification`,
+          callback_url:`${server}/api/v1/paymentverification`,
           prefill:{
             name:user.name,
             email:user.email,
@@ -59,7 +65,7 @@ const Subscribe = ({user}) => {
       }
       openPopUp();
     }
-  },[error,dispatch,user.email,key,subscriptionId,user.name])
+  },[error,dispatch,user.email,key,subscriptionId,user.name,courseError])
 
 
   return (
