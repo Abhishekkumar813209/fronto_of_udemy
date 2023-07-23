@@ -60,6 +60,7 @@ const handleClose=()=>{
                         </Box>
 
                         <Heading children={'Lectures'} size='lg' />
+                       {lectures.map((item,i)=>(
                         <VideoCard 
                         title="L"
                         description="This is a intro Lecture , where you will know the basics of react"
@@ -68,6 +69,7 @@ const handleClose=()=>{
                         courseId={id}
                         deleteButtonHandler={deleteButtonHandler}
                         />
+                       ))}
                     </Box>
                     <Box>
                         <form onSubmit={e=>addLectureHandler(e,id,title,description,video)}>

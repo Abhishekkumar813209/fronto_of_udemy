@@ -1,9 +1,12 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { Grid, Container, Heading, VStack,Input, Select,Image, Button } from '@chakra-ui/react'
 import Sidebar from '../Sidebar'
 import { fileUploadCss } from '../../Auth/Register';
-const CreateCourse = () => {
+import {createCourse} from "../../../redux/actions/admin";
+import { useDispatch,useSelector } from 'react-redux';
+import toast from "react-hot-toast"
 
+const CreateCourse = () => {
   const [title,setTitle] = useState('');
   const [description,setDescription] = useState('');
   const [createdBy,setCreatedBy] = useState('');
@@ -21,6 +24,9 @@ const CreateCourse = () => {
     'Game Development'
   ]
 
+  const dispatch= useDispatch();
+  const {loading,error,message} = useSelector(state=>state.admin)
+
   const changeImageHandler = (e) =>{
     const file = e.target.files[0];
     if (file) {
@@ -33,6 +39,33 @@ const CreateCourse = () => {
       }
 }
 
+const submitHandler = (e) =>{
+ 
+      //title , description , category , createdBy, file
+      e.preventDefault();
+      const myForm = new FormData();
+
+        myForm.append('title',title);
+        myForm.append('description',description);
+        myForm.append('category',category);
+        myForm.append('createdBy',createdBy);
+        myForm.append('file',image);
+
+        dispatch(createCourse(myForm));
+}
+
+ useEffect(()=>{
+  if(error){
+    toast.error(error)
+    dispatch({type:'clearError'});
+  }
+
+  if(message){
+    toast.success(message);
+    dispatch({type:'clearMessage'});
+  }
+ },[dispatch,error,message])
+
   return (
     <Grid
     minH={'100vh'}
@@ -40,7 +73,7 @@ const CreateCourse = () => {
      >
 
     <Container py="16">
-     <form>
+     <form onSubmit={submitHandler}>
       <Heading
       textTransform={'uppercase'}
       children='Create Course'
@@ -101,7 +134,7 @@ const CreateCourse = () => {
                 <Image src={imagePrev} boxSize='64' objectFit={'contain'} />
               )}
                 
-              <Button w="full" colorScheme={'purple'} type="submit">
+              <Button isLoading={loading} w="full" colorScheme={'purple'} type="submit">
                 Create
               </Button>
 
@@ -111,8 +144,6 @@ const CreateCourse = () => {
 
     </Container>
      <Sidebar />
- 
-     
     </Grid>
   )
 }

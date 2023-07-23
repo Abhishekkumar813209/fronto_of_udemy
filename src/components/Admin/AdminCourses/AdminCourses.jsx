@@ -1,31 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid,Box, Heading,Image, TableContainer, Table, TableCaption, Thead, Th, Tr, Tbody, Td, HStack, Button, useDisclosure } from '@chakra-ui/react'
 import Sidebar from '../Sidebar'
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 import CourseModal from './CourseModal'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllCourses, getCourseLectures } from '../../../redux/actions/course'
 const AdminCourses = () => {
 
-  const courses=[{
-      _id:"asadafadfadfd",
-      title:"React Course",
-      category:"Web Development",
-      poster:{
-        url:"https://cdn.pixabay.com/photo/2023/06/13/15/05/astronaut-8061095_1280.png"
-      },
-      createdBy:"Falana",
-      views:124,
-      noOfVideos:12
-  }]
+  // const courses=[{
+  //     _id:"asadafadfadfd",
+  //     title:"React Course",
+  //     category:"Web Development",
+  //     poster:{
+  //       url:"https://cdn.pixabay.com/photo/2023/06/13/15/05/astronaut-8061095_1280.png"
+  //     },
+  //     createdBy:"Falana",
+  //     views:124,
+  //     noOfVideos:12
+  // }]
 
+
+  const {courses,lectures} = useSelector(state=>state.course)
+  const dispatch = useDispatch()
   const {isOpen,onClose,onOpen} = useDisclosure()
 
 
-  const courseDetailsHandler = (userId)=>{
+  const courseDetailsHandler = (courseId)=>{
+    dispatch(getCourseLectures(courseId))
     onOpen()
   };
-  const deleteButtonHandler = userId=>{
-    console.log(userId);
+  const deleteButtonHandler = courseId=>{
+    console.log(courseId )
   }
   const deleteLectureButtonHandler=(courseId,lectureId) =>{
     console.log(courseId);
@@ -35,6 +40,10 @@ const AdminCourses = () => {
   const addLectureHandler = (e,courseId,title,description,video) =>{
     e.preventDefault()
   }
+
+  useEffect(()=>{
+    dispatchEvent(getAllCourses())
+  },[dispatch])
 
   return (
     <Grid
@@ -86,6 +95,7 @@ const AdminCourses = () => {
      deleteButtonHandler={deleteLectureButtonHandler}
      addLectureHandler={addLectureHandler}
      courseTitle="React Course"
+     lectures={lectures}
     />
 
      </Box>  
