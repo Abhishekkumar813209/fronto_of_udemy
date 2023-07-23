@@ -13,7 +13,56 @@ export const adminReducer = createReducer(
         createCourseFail:(action,state)=>{
             state.loading=false;
             state.error=action.payload;
-        }
-
+        },
+        deleteCourseRequest:state=>{
+            state.loading=true;
+        },
+        deleteCourseSuccess:(state,action)=>{
+            state.loading=false;
+            state.message=action.payload;
+        },
+        deleteCourseFail:(action,state)=>{
+            state.loading=false;
+            state.error=action.payload;
+        },
+        addLectureRequest:state=>{
+            state.loading=true;
+        },
+        addLectureSuccess:(state,action)=>{
+            state.loading=false;
+            state.message=action.payload;
+        },
+        addLectureFail:(action,state)=>{
+            state.loading=false;
+            state.error=action.payload;
+        },
+        deleteLectureRequest:state=>{
+            state.loading=true;
+        },
+        deleteLectureSuccess:(state,action)=>{
+            state.loading=false;
+            state.message=action.payload;
+        },
+        deleteLectureFail:(action,state)=>{
+            state.loading=false;
+            state.error=action.payload;
+        },
+        clearError:state=>{
+            state.error = null;
+        },
+        clearMessage:state=>{
+            state.message=null;
+        },
+        getAllUsersRequest:state=>{
+            state.loading=true;
+        },
+        getAllUsersSuccess:(state,action)=>{
+            state.loading=false;
+            state.users=action.payload;
+        },
+        getAllUsersFail:(action,state)=>{
+            state.loading=false;
+            state.error=action.payload;
+        },
     }
 )
