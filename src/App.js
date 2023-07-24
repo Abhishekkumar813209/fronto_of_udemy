@@ -138,13 +138,14 @@ function App() {
                         {/* Admin Routes */}
 
           <Route  path="/admin/dashboard" element={
-          <ProtectedRoute 
-          adminRoute={true}
-          isAuthenticated={isAuthenticated}
-          isAdmin={user && user.role===1}
-          >
-                <Dashboard />
-          </ProtectedRoute> 
+          // <ProtectedRoute 
+          // adminRoute={true}
+          // isAuthenticated={isAuthenticated}
+          // isAdmin={user && user.role===1}
+          // >
+          //       <Dashboard />
+          // </ProtectedRoute> 
+          <Dashboard />
           } 
           />
           

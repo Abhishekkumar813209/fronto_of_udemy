@@ -44,7 +44,7 @@ const CoursePage = ({user}) => {
         dispatch(getCourseLectures(params.id))
     },[dispatch,params.id])
     
-    if(user.role!=="admin" &&
+    if(user.role!=="1" &&
     (user.subscription===undefined || user.subscription.status!=='active')
     ){
       return <Navigate to={'/subscribe'} />;
