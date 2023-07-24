@@ -30,8 +30,6 @@ const Request = () => {
         }
         if(loading&& !error && !stateMessage){
             toast.success("Email Sent Successfully")
-            dispatch({type:'clearError'});
-            dispatch({type:'clearMessage'})
         }
       },[dispatch,error,stateMessage,loading])
     

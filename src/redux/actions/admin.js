@@ -108,7 +108,7 @@ export const deleteLecture = (courseId,lectureId) => async dispatch=>{
 }
 
 
-export const getAllUsers = (courseId,lectureId) => async dispatch=>{
+export const getAllUsers = () => async dispatch=>{
     try{
         const config = {
             withCredentials:true,
@@ -116,7 +116,7 @@ export const getAllUsers = (courseId,lectureId) => async dispatch=>{
         dispatch({
             type:'getAllUsersRequest'
         })
-       const {data} =  await axios.delete(`${server}/api/v1/admin/users`,
+       const {data} =  await axios.get(`${server}/api/v1/admin/users`,
        {},
        config
        );

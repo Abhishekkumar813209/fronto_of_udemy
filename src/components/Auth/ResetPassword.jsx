@@ -29,7 +29,7 @@ const ResetPassword = () => {
         dispatch({type:'clearMessage'});
         navigate('/login');
       } 
-    },[dispatch,error,message])
+    },[dispatch,error,message,navigate])
 
     console.log(params.token);
 

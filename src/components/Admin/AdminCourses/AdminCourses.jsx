@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllCourses, getCourseLectures } from '../../../redux/actions/course'
 import { addLecture, deleteCourse, deleteLecture } from '../../../redux/actions/admin'
 import toast from "react-hot-toast"
+
+
 const AdminCourses = () => {
 
   // const courses=[{
