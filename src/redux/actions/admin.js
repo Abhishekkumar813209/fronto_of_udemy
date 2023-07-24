@@ -90,6 +90,7 @@ export const deleteLecture = (courseId,lectureId) => async dispatch=>{
         }
         dispatch({
             type:'deleteLectureRequest'
+
         })
        const {data} =  await axios.delete(`${server}/api/v1/lecture?courseId=${courseId}&lectureId=${lectureId}`,
        config
@@ -101,6 +102,79 @@ export const deleteLecture = (courseId,lectureId) => async dispatch=>{
     catch(error){
         dispatch({
             type:'deleteLectureFail',
+            payload:error.response.data.message,
+        })
+    }
+}
+
+
+export const getAllUsers = (courseId,lectureId) => async dispatch=>{
+    try{
+        const config = {
+            withCredentials:true,
+        }
+        dispatch({
+            type:'getAllUsersRequest'
+        })
+       const {data} =  await axios.delete(`${server}/api/v1/admin/users`,
+       {},
+       config
+       );
+        dispatch({
+            type:'getAllUsersSuccess',payload:data.message
+        })
+    }
+    catch(error){
+        dispatch({
+            type:'getAllUsersFail',
+            payload:error.response.data.message,
+        })
+    }
+}
+
+
+export const updateUserRole = (id) => async dispatch=>{
+    try{
+        const config = {
+            withCredentials:true,
+        }
+        dispatch({
+            type:'updateUserRoleRequest'
+        })
+       const {data} =  await axios.put(`${server}/api/v1/admin/user/${id}`,
+       config
+       );
+        dispatch({
+            type:'updateUserRoleSuccess',payload:data.users
+        })
+    }
+    catch(error){
+        dispatch({
+            type:'updateUserRoleFail',
+            payload:error.response.data.message,
+        })
+    }
+}
+
+
+export const deleteUser = (id) => async dispatch=>{
+    try{
+        const config = {
+            withCredentials:true,
+        }
+        dispatch({
+            type:'deleteUserRequest'
+        })
+       const {data} =  await axios.delete(`${server}/api/v1/admin/user/${id}`,
+       config
+       );
+        dispatch({
+            type:'deleteUserSuccess',payload:data.users
+        })
+    }
+    catch(error){
+        dispatch({
+            type:'updateUserFail',
             payload:error.response.data.message,
         })
     }

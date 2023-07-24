@@ -64,5 +64,27 @@ export const adminReducer = createReducer(
             state.loading=false;
             state.error=action.payload;
         },
+        updateUserRoleRequest:state=>{
+            state.loading=true;
+        },
+        updateUserRoleSuccess:(state,action)=>{
+            state.loading=false;
+            state.message=action.payload;
+        },
+        updateUserRoleFail:(action,state)=>{
+            state.loading=false;
+            state.error=action.payload;
+        },
+        deleteAllUsersRequest:state=>{
+            state.loading=true;
+        },
+        deleteAllUsersSuccess:(state,action)=>{
+            state.loading=false;
+            state.message=action.payload;
+        },
+        deleteAllUsersFail:(action,state)=>{
+            state.loading=false;
+            state.error=action.payload;
+        },
     }
 )
