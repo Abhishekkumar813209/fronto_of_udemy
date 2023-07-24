@@ -1,9 +1,10 @@
 import { Box, Grid ,Heading,Stack,Text, HStack,Progress} from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../Sidebar'
 import { RiArrowDownLine, RiArrowUpLine } from 'react-icons/ri'
 import { DoughnutChart, LineChart } from './Chart'
-
+import {useDispatch} from "react-redux"
+import { getDashboardStats } from '../../../redux/actions/admin'
 const Databox = ({ title, qty, qtyPercentage, profit }) => {
     return (
       <Box
@@ -38,6 +39,13 @@ const Databox = ({ title, qty, qtyPercentage, profit }) => {
     )
 
 const Dashboard = () => {    
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(getDashboardStats())
+  },[dispatch])
+
 
   return (
    <Grid
