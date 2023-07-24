@@ -3,8 +3,10 @@ import React, { useEffect } from 'react'
 import Sidebar from '../Sidebar'
 import { RiArrowDownLine, RiArrowUpLine } from 'react-icons/ri'
 import { DoughnutChart, LineChart } from './Chart'
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { getDashboardStats } from '../../../redux/actions/admin'
+import Loader from "../../Layout/Loader/Loader"
+
 const Databox = ({ title, qty, qtyPercentage, profit }) => {
     return (
       <Box
@@ -41,7 +43,7 @@ const Databox = ({ title, qty, qtyPercentage, profit }) => {
 const Dashboard = () => {    
 
   const dispatch = useDispatch()
-
+  const {loading} = useSelector(state=>state.admin)
   useEffect(()=>{
     dispatch(getDashboardStats())
   },[dispatch])
@@ -52,7 +54,9 @@ const Dashboard = () => {
    minH={'100vh'}
    templateColumns={['1fr','5fr 1fr']}
     >
-    <Box boxSizing='border-box' py='16' px={['4','0']}>
+    {loading? 
+    <Loader color="purple.500" /> :(
+      <Box boxSizing='border-box' py='16' px={['4','0']}>
         <Text
         textAlign={'center'}
         opacity={0.5}
@@ -124,6 +128,7 @@ const Dashboard = () => {
 
         </Grid>
     </Box>
+    )}
     <Sidebar />
    </Grid>
   )

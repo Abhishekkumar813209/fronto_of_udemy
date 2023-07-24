@@ -189,7 +189,7 @@ export const getDashboardStats = (id) => async dispatch=>{
         dispatch({
             type:'getAdminStatsRequest'
         })
-       const {data} =  await axios.get(`${server}/api/v1/admin/user/${id}`,
+       const {data} =  await axios.get(`${server}/api/v1/admin/stats`,
        config
        );
         dispatch({
