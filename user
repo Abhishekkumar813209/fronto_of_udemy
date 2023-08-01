@@ -1,0 +1,335 @@
+[33mcommit bf4e3d0de773cebebe2af293dec749c272ee466e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Mon Jul 24 21:58:28 2023 +0530
+
+    completed codebase with few errors current error admin - dashboard is not accessible
+
+[33mcommit bd5b67562b4d3a63452c2ef186e2c50be431d919[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Mon Jul 24 18:38:55 2023 +0530
+
+    spinning problem in courserequest
+
+[33mcommit e8e36a11d6a6e43015327dbe592610501043561a[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Mon Jul 24 13:32:07 2023 +0530
+
+    completed 6 min but backend problem cannot get admin/user/undefined
+
+[33mcommit e24c30eebae74f9c9b73319d7faeafd68bee144a[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Mon Jul 24 13:11:57 2023 +0530
+
+    completed l 53'
+
+[33mcommit 53e78a51bd2ef18b82d836fb90df9f4bcf622926[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Mon Jul 24 01:28:30 2023 +0530
+
+    completed l-52'
+
+[33mcommit 13e51cc39f0a6530f9bc770be051597ac066c497[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Mon Jul 24 00:27:16 2023 +0530
+
+    completed l-50
+
+[33mcommit 33cc77601c72ada6ba2aa786c6e085a4dcacccf2[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 22 21:35:01 2023 +0530
+
+    completed lesson 49
+
+[33mcommit 2f993d3f65684dbb468cdd4138f85c68d94a56b4[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 22 19:12:19 2023 +0530
+
+    done subscription handler but post request is failing on paymentverification route
+
+[33mcommit d0fa0bff1ba38b5713e49fa63bc15978ba60fbad[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 22 12:45:02 2023 +0530
+
+    at 19 min of subscription-handler
+
+[33mcommit 383b401fd78043df4b3a8259096e0c52874243f9[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 21 20:46:42 2023 +0530
+
+    added add to playlist option but the difference is this playlist is visible directly without refreshing the profile page and next payment addition
+
+[33mcommit f7620f384043a8ad047226d85650ab5b700492b1[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 21 20:24:06 2023 +0530
+
+    adding add to playlist and remove from playlist
+
+[33mcommit 0a7a0908da64e8d8255684734dc4cd5966e17c9f[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 21 18:19:17 2023 +0530
+
+    done reset password and current at 5min of get all courses
+
+[33mcommit cdc6ab5d8c593e545dd3a1f39499194ea35bc854[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 21 15:58:18 2023 +0530
+
+    done reset password
+
+[33mcommit a64d5c3964ffa5f47b16467ce4a65bf2615e575c[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 21 14:10:50 2023 +0530
+
+    added react toast for successfull profile change and avatar update
+
+[33mcommit c9c5c95753b27099b4008ee4a360816ec25ee7d8[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 21 13:39:48 2023 +0530
+
+    solved loaduser payload:data only not data.user
+
+[33mcommit b3453b115f2297b99d12b14e0474a13ceed6945c[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 21 10:30:00 2023 +0530
+
+    added change password with difficulty and 1 day wait by adding lax in token
+
+[33mcommit 07c15feaa783072dc7255e25ae76bcdabc2965a4[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Thu Jul 20 18:06:27 2023 +0530
+
+    added sign up and profile handler
+
+[33mcommit 0a1ba065f456866f62c7dab90a9337a3532d03cd[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Thu Jul 20 17:30:58 2023 +0530
+
+    debugged status error of profile.jsx
+
+[33mcommit 86f4fa09af9e513ec3aeb4e41cdb6b62aecf460e[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Thu Jul 20 13:10:30 2023 +0530
+
+    added register functionality
+
+[33mcommit 83c513c1ef270ad640cde1d762c974040b623182[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Thu Jul 20 12:18:25 2023 +0530
+
+    added logout functionality had to debug the userReducer error where i by mistake copied the same thing from actions file
+
+[33mcommit 3e6b956d97545c2ecf869bd5093a989b05e65fbf[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Wed Jul 19 22:20:29 2023 +0530
+
+    added redux and react hot toast
+
+[33mcommit 1f0c3ea4119384fea45d50174021786a87ae9124[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Wed Jul 19 21:57:14 2023 +0530
+
+    added login functionality in frontend at 15min
+
+[33mcommit bc5230935213e19825e379b2b98c68dce538b82b[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Mon Jul 17 19:07:41 2023 +0530
+
+    added Admin course page at 14 minutes
+
+[33mcommit 38427278bd7fd033d3a8bf8067460e085e8ea69f[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 22:06:51 2023 +0530
+
+    added admin users table left with admin courses page and lecture form
+
+[33mcommit 721eb6198fd00d4d6da06cb7b64f9b0a9d8acc3e[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 21:35:06 2023 +0530
+
+    completed create course page but routing problem persists
+
+[33mcommit 585fd89cd5e28570d6daf883b30e92f42c97d01b[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 21:00:51 2023 +0530
+
+    completed dashboard with charts l-15 footer responsiveness issue persists
+
+[33mcommit 3c5b7e7e0f656cbcdce488338a2b4e612046bbb3[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 20:12:10 2023 +0530
+
+    added line chart resolved last ui problem
+
+[33mcommit 4ec73d0cdb456e78b5dc517596acc0a14088d008[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 19:44:19 2023 +0530
+
+    completed admin dashboard till 14 but still views graph column is sidebar aligned it should be aligned below databox now charts and graphs will be made
+
+[33mcommit 913bce3a0f77c0190eb0f1c4941618cdffa656ab[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 18:05:25 2023 +0530
+
+    added dashboard file with 3 databox but problem is that databox is not defined
+
+[33mcommit 9b966cc67d48a96dfb8d36035e1ef047d8011549[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 17:01:41 2023 +0530
+
+    added sidebar with hover but slight modification from chatgpt
+
+[33mcommit 6af14559faae6bd2d7468071818a3b6f31b4bff4[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 16:30:14 2023 +0530
+
+    partial dashboard completed
+
+[33mcommit c7a2f0a178e1f9c5d357265ee0f77755ad1d14c2[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 14:56:05 2023 +0530
+
+    added change profile and updateprofile starting admin part
+
+[33mcommit 7379566a5e7d16376a4723b6fe3bf33725a55ceb[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 14:27:14 2023 +0530
+
+    completed profile section now working on changePassword and update profile
+
+[33mcommit a2389b260a20198f4e46b915e0a2a7e105770af0[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sun Jul 16 12:06:33 2023 +0530
+
+    completing profile page forgot to commit at 1o min at 22.50minutes
+
+[33mcommit 516a4c46069d9fd637538bcb3a096a5fedd6df33[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 15 19:37:58 2023 +0530
+
+    payment_failed payment_success and subscribe page added
+
+[33mcommit e07dbbd40d26634054c9deed7ce242f3ecae047f[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 15 17:51:19 2023 +0530
+
+    added terms and condition but props of terms and condition is not working
+
+[33mcommit b2c6841d302208d9bc0817f9788c6ca53776fcda[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 15 17:02:58 2023 +0530
+
+    completed half part of about section next step videoPlayer will be added
+
+[33mcommit 5bad82985dc4d9301f2d627a0eae866767a40140[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 15 16:30:06 2023 +0530
+
+    added contact and request form
+
+[33mcommit be9a03c6877b6a136a66de6bb79dd583a46c8950[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 15 14:43:29 2023 +0530
+
+    completed forget and resetPassword form with replaced target = {_blank}  to blank
+
+[33mcommit a794c5c2fb0de720a2b2276386cff1ff8e70ed83[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 15 13:59:23 2023 +0530
+
+    added signup page with upload file functionality see last 2 minutes video
+
+[33mcommit 12f49de89bf5fa2c222bb3bad2a966fa52ac6c0c[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Sat Jul 15 13:26:26 2023 +0530
+
+    added login page
+
+[33mcommit bfee95aaf71637de53881f88b51ce928ad71a312[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 22:05:31 2023 +0530
+
+    completed footer section where links are active to youtube , instagram and github
+
+[33mcommit f264518a86207be3506371b0213e45dd28a1bf8a[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 22:04:11 2023 +0530
+
+    completed till 7 minutes @l-5
+
+[33mcommit f2784abd5a8aef90e37bca8f3ab08cf9797d397a[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 21:04:52 2023 +0530
+
+    completed 20 minutes
+
+[33mcommit 639e38d3468752961033489d64d32297b0c645f8[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 20:28:29 2023 +0530
+
+    completed tillhorizontal scroll bar
+
+[33mcommit 101befb2a7448c8e7897fe9fc316f21eda6c12b2[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 18:08:32 2023 +0530
+
+    completed lecture 3
+
+[33mcommit 49a39cfebb0469dec68aeb2d4989fe6a1d403c47[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 17:23:26 2023 +0530
+
+    completed 15minutes
+
+[33mcommit 455b14749a424e64c3fb595e6cab5438b3bd0b50[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 16:13:19 2023 +0530
+
+    completed 10 minutes
+
+[33mcommit 057997674b83fea5c02e399a23e92cd57c9e4f13[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 16:06:02 2023 +0530
+
+    added git  drawer now links will be added @lecture3
+
+[33mcommit 80d4aa27d4b20f1a58ea1aded75a67193480db4b[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 15:54:02 2023 +0530
+
+    adding drawer on website
+
+[33mcommit 63575943386766a1007ba54cd1b5087ff25540c8[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 15:47:07 2023 +0530
+
+    completed l-2
+
+[33mcommit d4e02804be4edeeb3a0529d94ff17be193667258[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 15:18:12 2023 +0530
+
+    at 18minutes
+
+[33mcommit 6ca870d80b92423def48b03f81d0bed76db66bdf[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 14:52:12 2023 +0530
+
+    at 9min till now added section , stack ,vstack , image-vg
+
+[33mcommit 4b214ebb8f84c7992976b716dd02a442e4b9689a[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 14:28:18 2023 +0530
+
+    added dependencies but error may arrive due to latest version @8 min
+
+[33mcommit 807750069f2e21369f4fbbf5f01e10e6207f8170[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 14:21:09 2023 +0530
+
+    added folder structure
+
+[33mcommit e84d8369a06a71355fcfdeef988c2be36e24ea9d[m
+Author: Bibash Roy <bibhash@gmail.com>
+Date:   Fri Jul 14 14:14:35 2023 +0530
+
+    Initialize project using Create React App
