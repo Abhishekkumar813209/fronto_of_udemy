@@ -6,7 +6,7 @@ import {CgGoogle,CgYoutube} from "react-icons/cg"
 import {SiCoursera,SiUdemy} from "react-icons/si";
 import {DiAws} from "react-icons/di"
 import introVideo from "./../assets/videos/lake_aerial_view_drone_flight_view_943.mp4"
-
+import vg from "./../assets/images/detective.png"
 const Home = () => {
   return (
     <section className="home">
@@ -42,6 +42,7 @@ const Home = () => {
     className='vector-graphics' 
     boxSize={"md"}   
     objectFit="contain"
+    src={vg}
     />
             
                 </Stack>
